@@ -1,0 +1,13 @@
+{
+    "eslint.validate": [
+        "javascript",
+        "typescript"
+    ],
+    "eslint.workingDirectories": [
+        {
+            "directory": "./test-project",
+            "changeProcessCWD": true
+        }
+    ],
+    "git.ignoreLimitWarning": true
+}
