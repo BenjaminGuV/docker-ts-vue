@@ -4,6 +4,8 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
+  watch: true,
   entry: {
     app: path.resolve(__dirname, 'src/server.ts')
   },

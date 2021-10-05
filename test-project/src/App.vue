@@ -4,6 +4,10 @@
         <div>
             <Home :person="person"></Home>
         </div>
+        <div>
+            <h2>{{ fullName }}</h2>
+            <button @click="click()">Hey click</button>
+        </div>
     </div>
 </template>
 
@@ -19,5 +23,25 @@ import Person from './models/person'
 })
 export default class App extends Vue {
     private person: Person = new Person();
+
+    name: string = 'Samanta'
+    lastname: string = 'Laras'
+
+    get fullName(): string {
+        return `${this.name} ${this.lastname}`
+    }
+
+    click(){
+        alert(1);
+    }
+
+    mounted(){
+        console.log("start");
+    }
+
+    destroyed(){
+        console.log("destroyed");
+    }
+
 }
 </script>
