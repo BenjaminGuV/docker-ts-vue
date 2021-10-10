@@ -1,7 +1,9 @@
 <template>
     <div>
-        <Todoform />
+        <TodoForm @newTodo="newTodo($event)" />
         <hr>
+
+        <button @click="removeTodoAll">Eliminar todo</button>
         <table>
             <thead>
                 <tr>
@@ -11,13 +13,7 @@
                 </tr>
             </thead>
             <tbody v-if="todos.length > 0">
-                <tr v-for="(todo, index) in todos" :key="index">
-                    <td>{{ index + 1 }}</td>
-                    <td>{{ todo }}</td>
-                    <td>
-                        <button @click="removeTodo(index)" class="btn btn-danger btn-block">Eliminar todo</button>
-                    </td>
-                </tr>
+                <TodoList @removeTodo="removeTodo(index)" :todo="todo" :index="index" v-for="(todo, index) in todos" :key="index"/>
             </tbody>
             <tbody v-else>
                 <tr>
@@ -33,10 +29,12 @@
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 import TodoForm from './TodoForm.vue'
+import TodoList from './TodoList.vue'
 
 @Component({
     components:{
-        TodoForm
+        TodoForm,
+        TodoList
     }
 })
 export default class Todo extends Vue{

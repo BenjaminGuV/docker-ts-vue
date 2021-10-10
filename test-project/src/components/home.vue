@@ -1,8 +1,5 @@
 <template>
-    <form>
-        <input type="text" v-model="person.name" />
-        {{person.name}}
-    </form>
+    <h2>Home</h2>
 </template>
 
 <script lang="ts">
